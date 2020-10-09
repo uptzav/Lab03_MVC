@@ -1,0 +1,38 @@
+﻿@model Lab3_MVC_Zavala.Models.ClsJuego
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> <h1><b>Juego de ruleta</b></h1>
+    <br /><br />
+    @using (Html.BeginForm("Index", "Juego", FormMethod.Post))
+    {
+        <p>@Html.LabelFor(model => model.numero1, "Numero de la Suerte")</p>
+        <button>Iniciar Juego</button>
+
+        if (Session["i"] == null)
+        {
+            Session["i"] = 1;
+            <h3>? - ? - ?</h3>
+        }
+        else
+        {
+            int contador = Convert.ToInt32(Session["i"]);
+            contador++;
+            Session["i"] = contador;
+    <h3>@Model.numero1 - @Model.numero2 -  @Model.numero3</h3>
+        }
+    }
+    <br />
+    @Model.resultado
+    </div>
+</body>
+</html>

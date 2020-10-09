@@ -1,0 +1,46 @@
+﻿@model Lab3_MVC_Zavala.Models.ClsBisiesto
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MostrarAños</title>
+</head>
+<body>
+    <div>
+        <center><b><u>Años Bisiestos</u></b></center>
+        <br />
+        @using (Html.BeginForm("CalcularAños", "Bisiesto", FormMethod.Post))
+        {
+            <div>
+                @Html.LabelFor(Model => Model.inicio, "Año Inicial:")
+                @Html.TextBoxFor(Model => Model.inicio)
+            </div>
+            <div>
+                @Html.LabelFor(Model => Model.final, "Año Final:")
+                @Html.TextBoxFor(Model => Model.final)
+            </div>
+            <div>
+                <label>
+                    @Html.RadioButton("Año", "Mostrar Bisiestos", true)Años bisiestos
+                </label>
+                <br />
+                <label>
+                    @Html.RadioButton("Año", "Mostrar No Bisiestos")Años No bisiestos
+                </label>
+                <br />
+                <label>
+                    @Html.RadioButton("Año", "Mostrar Todos")Todos los Años
+                </label>
+                <br /><br />
+                <input type="submit" value="Mostrar Años" />
+            </div>
+
+        }
+    </div>
+</body>
+</html>
